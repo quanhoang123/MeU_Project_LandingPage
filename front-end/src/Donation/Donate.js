@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import $ from "jquery";
 import './style.css';
 import { Link } from 'react-router-dom';
-
 import Donation_name from '../components/Name-Staff-Donation/donation-name';
 import Donation_text from '../components/Content/donation-text';
 import Button_donation from '../components/Button-pnv/button-donation';
@@ -10,7 +9,7 @@ import Content from '../components/Description/description';
 import Image_component from '../components/Image-component/image_component';
 import Footer from '../Footer/Footer';
 
-import Header from '../Header/Header';
+
 class Donate extends Component {
     constructor(props) {
         super(props);
@@ -41,6 +40,9 @@ class Donate extends Component {
     }
     onChangeOtherAmount = (e) => {
         this.setState({ otherValue: e.target.value });
+    }
+    postDonation=()=>{
+
     }
     render() {
         var countries = [
@@ -631,7 +633,7 @@ class Donate extends Component {
                                         Before I left, she asked me to try to study hard which I did!
                                         My mother is my everyday inspiration and motivation."></Donation_text>
                                     <Donation_name name="Hoang Trung Quan" ></Donation_name>
-                                    <Link to="/"><Button_donation name_butotn="read more"></Button_donation></Link>
+                                    {/* <Link to="/"><Button_donation name_butotn="read more"></Button_donation></Link> */}
                                 </div>
                             </div>
                         </div>
@@ -648,7 +650,7 @@ class Donate extends Component {
                                         Proud to help my brother finish his education.
                                         Proud to help my family slowly build a new and stronger house." />
                                     <Donation_name name="A Viet Duong" ></Donation_name>
-                                    <Link to="/"><Button_donation name_butotn="read more"></Button_donation></Link>
+                                    {/* <Link to="/"><Button_donation name_butotn="read more"></Button_donation></Link> */}
                                 </div>
                             </div>
                         </div>
@@ -662,7 +664,7 @@ class Donate extends Component {
                                         I would not be where I am today if it was not thanks to the training programme in Information Technology I was part of.
                                         Thanks to all the teachers, staffs and partners who make the programme a true success: thank PNV!"/>
                                     <Donation_name name="Tran Van Phat" />
-                                    <Link to="/"><Button_donation name_butotn="read more"></Button_donation></Link>
+                                    {/* <Link to="/"><Button_donation name_butotn="read more"></Button_donation></Link> */}
                                 </div>
                             </div>
                         </div>

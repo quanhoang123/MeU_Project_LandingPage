@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_URL="https://localhost:8000/api/";
+const API_URL="http://localhost:8000/api";
 export default function callAPI(endpoint, method = "GET", body) {
         return axios({
             method: method,
@@ -9,12 +9,3 @@ export default function callAPI(endpoint, method = "GET", body) {
             console.log(err);
         });
 }
-export const callAPI = () =>{
-    return axios({
-        method: 'GET',
-        url: 'https://data-json-server.herokuapp.com/api/products',
-        data: null
-    }).then(res => {
-        res.data
-    })
-    .catch(err => { })};

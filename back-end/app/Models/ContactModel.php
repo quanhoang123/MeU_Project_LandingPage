@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AdminModel extends Model
+class ContactModel extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','avatar','username','password'];
+    protected $table='partners_vip';
+    protected $fillable=['name','email','phone','messages','position'];
     public $timestamps = false;
+    
 }

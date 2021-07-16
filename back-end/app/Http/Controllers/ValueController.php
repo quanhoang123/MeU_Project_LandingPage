@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ValueModel;
 use Illuminate\Http\Request;
 
-class PageController extends Controller
+class ValueController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class PageController extends Controller
      */
     public function index()
     {
-       
+        $value=ValueModel::get();
+        return $value;
     }
 
     /**
@@ -23,7 +25,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('welcome');
+        //
     }
 
     /**

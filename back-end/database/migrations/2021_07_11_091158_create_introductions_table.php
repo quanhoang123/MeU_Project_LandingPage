@@ -13,7 +13,7 @@ class CreateIntroductionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('introductions', function (Blueprint $table) {
+        Schema::create('introduction', function (Blueprint $table) {
             $table->increments('id');
             $table->string('image');
             $table->string('title');

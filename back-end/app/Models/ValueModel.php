@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class ValueModel extends Model
 {
     use HasFactory;
+    protected $table='valuepnv';
+    protected $fillable=['name','title','image'];
 }

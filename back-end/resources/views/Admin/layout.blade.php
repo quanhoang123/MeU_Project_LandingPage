@@ -58,7 +58,7 @@
                 </a>
                 <div class="collapse" id="collapseTable" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="table ">Product</a>
+                        <a class="nav-link" href="contacts">Contact</a>
                         <a class="nav-link" href="blog">Blog</a>
                     </nav>
                 </div>

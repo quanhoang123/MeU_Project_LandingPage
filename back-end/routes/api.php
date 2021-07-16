@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\PageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +17,23 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-// Route::resource('/user', [PageController::class]);
+
+// Introduction
+Route::get('/introductions','IntroduceController@header');
+Route::resource('/introduction', IntroduceController::class);
+// end Introduction
+
+
+// Start Value
+
+Route::resource('/values', ValueController::class);
+
+//End Value
+
+// Start Manager
+Route::resource('/managers', ManagerController::class);
+// End Manager
+
+// Start contact
+Route::resource('/contacts', ContactController::class);
+//  End Contact

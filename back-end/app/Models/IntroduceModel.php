@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class IntroduceModel extends Model
 {
     use HasFactory;
+    protected $table='introduction';
+    protected $fillable=['image','title','content','description'];
 }

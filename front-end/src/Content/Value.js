@@ -1,28 +1,55 @@
 import React, { Component } from 'react';
-
+import Title from '../components/Title-components/Title';
+import callAPI from '../service/api-donation';
 class Value extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        value: [],
+        isLoaded: false,
+    }
+}
+getData = () => {
+    callAPI('values','GET',null).then(res=>{
+        this.setState({ 
+            value: res.data,
+            isLoaded: true,
+        });
+        console.log(this.state.value);
+    }).catch(err => { });
+}
+componentDidMount() {
+    this.getData();
+}
     render() {
+      const{value}=this.state;
         return (
             <section id="service" className="services-area pt-125 pb-130 gray-bg">
               <div className="container">
                 <div className="row justify-content-center">
                   <div className="col-lg-6">
                     <div className="section-title text-center pb-20">
-                      <h2 className="title">NHỮNG GIÁ TRỊ CỐT LÕI</h2>
+                      <Title title="THE CORE VALUES"></Title>     
                     </div> {/* section title */}
                   </div>
                 </div> {/* row */}
                 <div className="row justify-content-center">
-                  <div className="col-lg-4 col-md-6 col-sm-8">
-                    <div className="single-services text-center mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.8s">
-                      <div className="services-icon">
-                        <i className="lni-blackboard" />
-                      </div>
-                      <div className="services-content mt-15">
-                        <h4 className="services-title">YÊU CẦU CAO</h4>
-                      </div>
-                    </div> {/* single services */}
-                  </div>
+                  {
+                    value.map((values)=>{
+                      return(
+                        <div className="col-lg-4 col-md-6 col-sm-8">
+                          <div className="single-services text-center mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.8s">
+                            <div className="services-icon"> 
+                              <i className="lni-blackboard" />
+                            </div>
+                            <div className="services-content mt-15">
+                              <h4 className="services-title">{values.name}</h4>
+                            </div>
+                          </div> 
+                        </div>
+                      )})                
+                  }
+{/*                   
                   <div className="col-lg-4 col-md-6 col-sm-8">
                     <div className="single-services text-center mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1.2s">
                       <div className="services-icon">
@@ -31,7 +58,7 @@ class Value extends Component {
                       <div className="services-content mt-15">
                         <h4 className="services-title">TIN TƯỞNG</h4>
                       </div>
-                    </div> {/* single services */}
+                    </div>
                   </div>
                   <div className="col-lg-4 col-md-6 col-sm-8">
                     <div className="single-services text-center mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.4s">
@@ -41,7 +68,7 @@ class Value extends Component {
                       <div className="services-content mt-15">
                         <h4 className="services-title">TRÁCH NHIỆM</h4>
                       </div>
-                    </div> {/* single services */}
+                    </div>
                   </div>
                   <div className="col-lg-4 col-md-6 col-sm-8">
                     <div className="single-services text-center mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.8s">
@@ -51,7 +78,7 @@ class Value extends Component {
                       <div className="services-content mt-15">
                         <h4 className="services-title">ĐOÀN KẾT</h4>
                       </div>
-                    </div> {/* single services */}
+                    </div>
                   </div>
                   <div className="col-lg-4 col-md-6 col-sm-8">
                     <div className="single-services text-center mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1.2s">
@@ -61,10 +88,11 @@ class Value extends Component {
                       <div className="services-content mt-15">
                         <h4 className="services-title">TÔN TRỌNG</h4>
                       </div>
-                    </div> {/* single services */}
+                    </div>
                   </div>
-                </div> {/* row */}
-              </div> {/* container */}
+                 */}
+                </div> 
+              </div> 
             </section>
         );
     }
