@@ -814,6 +814,7 @@ p {
 
 .single-services {
   padding: 50px 30px;
+  border-radius: 20px;
   background-color: #fff;
   -webkit-transition: all 0.4s ease-out 0s;
   -moz-transition: all 0.4s ease-out 0s;

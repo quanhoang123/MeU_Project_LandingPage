@@ -10,9 +10,9 @@ import DangKiNhanThongTin from '../Content/DangKiNhanThongTin';
 import Map from '../Footer/Map';
 import Footer from '../Footer/Footer';
 import News from '../Content/News';
-import Partner from '../Partner/main_partner';
-import Local_partner from '../Partner/local_partner';
 import { Link } from 'react-router-dom';
+
+
 class Navbar extends Component {
     render() {
         return (
@@ -63,6 +63,7 @@ class Navbar extends Component {
               </div> {/* row */}
             </div> {/* container */}
           </div> {/* navigation bar */}
+        
         <Header />
         {/*====== HEADER PART START ======*/}
         
@@ -70,6 +71,7 @@ class Navbar extends Component {
         {/*====== ABOUT PART START ======*/}
         <AboutUs />
         {/*====== ABOUT PART ENDS ======*/}
+        
         {/*====== SERVICES PART START ======*/}
         <Value />
         {/*====== SERVICES PART ENDS ======*/}
@@ -97,7 +99,8 @@ class Navbar extends Component {
         <Footer />
         {/*====== FOOTER PART ENDS ======*/}
         {/*====== BACK TO TOP PART START ======*/}
-        <a href="#" className="back-to-top"><i className="lni-chevron-up" /></a>
+        <a href="#" className="back-to-top"><i className="fa fa-chevron-up" /></a>
+        {/* <a href="#" className="back-to-top"><i className="lni-chevron-up" /></a> */}
         {/*====== BACK TO TOP PART ENDS ======*/}
         {/*====== PART START ======*/}
         {/*

@@ -1,4 +1,5 @@
 import React from 'react';						
+import Blog_Student from './Blog-Component/blog-student';
 import Donate from './Donation/Donate';
 import Navbar from './Header/Navbar';
 import Partner from './Partner/main_partner';
@@ -18,6 +19,11 @@ const routes = [
 		path : '/partner',				
 		exact : true,				
 		main : ()=> <Partner />				
+	},
+	{					
+		path : '/student_blog',				
+		exact : true,				
+		main : ()=> <Blog_Student />				
 	}
 	
 ];						

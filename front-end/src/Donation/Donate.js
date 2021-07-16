@@ -4,10 +4,15 @@ import './style.css';
 import { Link } from 'react-router-dom';
 import Donation_name from '../components/Name-Staff-Donation/donation-name';
 import Donation_text from '../components/Content/donation-text';
-import Button_donation from '../components/Button-pnv/button-donation';
+// import Button_donation from '../components/Button-pnv/button-donation';
 import Content from '../components/Description/description';
 import Image_component from '../components/Image-component/image_component';
 import Footer from '../Footer/Footer';
+import Loading from '../Header/Loading';
+import AboutUs from '../Content/AboutUs';
+import Header from '../Header/Header';
+import Navbar from '../Header/Navbar';
+import Map from '../Footer/Map';
 
 
 class Donate extends Component {
@@ -21,7 +26,7 @@ class Donate extends Component {
             otherValue: "",
             valueMonth: '',
             total: "",
-            hihi: "",
+            orther: "",
             date: date,
             today: day
         };
@@ -29,9 +34,9 @@ class Donate extends Component {
 
     onChange = (e) => {
         const newVal = parseInt(e.target.value);
-        let other = parseInt(newVal - 100);
+        let other = parseInt(newVal - 10);
         let total = newVal + other;
-        this.setState({ value: newVal, hihi: other, total: total });
+        this.setState({ value: newVal, orther: other, total: total });
         console.log(e.target.value);
     }
     onHandelChange = (e) => {
@@ -41,7 +46,7 @@ class Donate extends Component {
     onChangeOtherAmount = (e) => {
         this.setState({ otherValue: e.target.value });
     }
-    postDonation=()=>{
+    postDonation = () => {
 
     }
     render() {
@@ -291,55 +296,124 @@ class Donate extends Component {
             { "text": "Zimbabwe", "value": "ZW" }
         ];
         return (
+
             <div>
+                <Loading />
                 <div className="navigation-bar">
                     <div className="container">
-                    <div className="row">
-                        <div className="col-lg-12">
-                        <nav className="navbar navbar-expand-lg">
-                            <a className="navbar-brand" href="#">
-                            <img src="assets/images/logo.png" alt="Logo" />
-                            </a>
-                            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="toggler-icon" />
-                            <span className="toggler-icon" />
-                            <span className="toggler-icon" />
-                            </button>
-                            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul id="nav" className="navbar-nav ml-auto">
-                                <li className="nav-item active">
-                                <a className="page-scroll" href="#home">Trang chú</a>
-                                </li>
-                                <li className="nav-item">
-                                <a className="page-scroll" href="#about">Thông tin</a>
-                                </li>
-                                <li className="nav-item">
-                                <a className="page-scroll" href="#service">Giá trị</a>
-                                </li>
-                                <li className="nav-item">
-                                <a className="page-scroll" href="#project">Thành tựu</a>
-                                </li>
-                                <li className="nav-item">
-                                <a className="page-scroll" href="#team">Hội đồng</a>
-                                </li>
-                                <li className="nav-item">
-                                <a className="page-scroll" href="#contact">Liên hệ</a>
-                                </li>
-                                <li className="nav-item">
-                                <a className="page-scroll" href="#news">Tin tức</a>
-                                </li>
-                            </ul> {/* navbar nav */}
+                        <div className="row">
+                            <div className="col-lg-12">
+                                <nav className="navbar navbar-expand-lg">
+                                    <a className="navbar-brand" href="#">
+                                        <img src="assets/images/logo.png" alt="Logo" />
+                                    </a>
+                                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span className="toggler-icon" />
+                                        <span className="toggler-icon" />
+                                        <span className="toggler-icon" />
+                                    </button>
+                                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                                        <ul id="nav" className="navbar-nav ml-auto">
+                                            <li className="nav-item active">
+                                                <a className="page-scroll" href="#home">Trang chú</a>
+                                            </li>
+                                            <li className="nav-item">
+                                                <a className="page-scroll" href="#about">Thông tin</a>
+                                            </li>
+                                            <li className="nav-item">
+                                                <a className="page-scroll" href="#service">Giá trị</a>
+                                            </li>
+                                            <li className="nav-item">
+                                                <a className="page-scroll" href="#project">Thành tựu</a>
+                                            </li>
+                                            <li className="nav-item">
+                                                <a className="page-scroll" href="#team">Hội đồng</a>
+                                            </li>
+                                            <li className="nav-item">
+                                                <a className="page-scroll" href="#contact">Liên hệ</a>
+                                            </li>
+                                            <li className="nav-item">
+                                                <a className="page-scroll" href="#news">Tin tức</a>
+                                            </li>
+                                        </ul> {/* navbar nav */}
+                                    </div>
+                                    <div className="navbar-btn ml-20 d-none d-sm-block">
+                                        <a className="main-btn" href="#"><i className="lni-phone" />DONATE</a>
+                                    </div>
+                                </nav>
                             </div>
-                            <div className="navbar-btn ml-20 d-none d-sm-block">
-                            <a className="main-btn" href="#"><i className="lni-phone" />DONATE</a>
-                            </div>
-                        </nav> {/* navbar */}
                         </div>
-                    </div> {/* row */}
-                    </div> {/* container */}
-                </div> {/* navigation bar */}
-                {/* <Header></Header> */}
-            
+                    </div>
+                </div>
+                <Header></Header>
+                <AboutUs></AboutUs>
+                <div className="donation wow fadeInUp" data-wow-delay="0.1s" id="review">
+                    <div className="row">
+                        <div className="col-lg-4 col-md-12 mb-4">
+                            <div className="modal fade" id="modal1" tabIndex={-1} role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div className="modal-dialog modal-lg" role="document">
+                                    <div className="modal-content">
+                                        <div className="modal-body mb-0 p-0">
+                                            <div className="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                                <iframe width="560" height="315" src="https://www.youtube.com/embed/olcVx8xnwWQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                            </div>
+                                        </div>
+                                        <div className="modal-footer justify-content-center">
+                                            <span className="mr-4">Share about student</span>
+                                            <a type="button" className="btn-floating btn-sm btn-fb"><i className="lni-facebook-filled" /></a>
+                                            <a type="button" className="btn-floating btn-sm btn-tw"><i className="lni-twitter-original" /></a>
+                                            <a type="button" className="btn-floating btn-sm btn-ins"><i className="lni-linkedin-original" /></a>
+                                            <button type="button" className="btn btn-footer btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a><img className="img-fluid z-depth-1" src="images/huou.jpg" alt="video of student PNV22" data-toggle="modal" data-target="#modal1" /></a>
+                        </div>
+                        <div className="col-lg-4 col-md-6 mb-4">
+                            <div className="modal fade" id="modal6" tabIndex={-1} role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div className="modal-dialog modal-lg" role="document">
+                                    <div className="modal-content">
+                                        <div className="modal-body mb-0 p-0">
+                                            <div className="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                                <iframe width="560" height="315" src="https://www.youtube.com/embed/NDHBdV3QUCk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                            </div>
+                                        </div>
+                                        <div className="modal-footer justify-content-center">
+                                            <span className="mr-4">About PNV</span>
+                                            <a type="button" className="btn-floating btn-sm btn-fb"><i className="lni-facebook-filled" /></a>
+                                            <a type="button" className="btn-floating btn-sm btn-tw"><i className="lni-twitter-original" /></a>
+                                            <a type="button" className="btn-floating btn-sm btn-ins"><i className="lni-linkedin-original" /></a>
+                                            <button type="button" className="btn btn-footer btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a><img className="img-fluid z-depth-1" src="images/pnv.jpg" alt="video" data-toggle="modal" data-target="#modal6" /></a>
+                        </div>
+                        <div className="col-lg-4 col-md-6 mb-4">
+                            <div className="modal fade" id="modal4" tabIndex={-1} role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div className="modal-dialog modal-lg" role="document">
+                                    <div className="modal-content">
+                                        <div className="modal-body mb-0 p-0">
+                                            <div className="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                                <iframe width="560" height="315" src="https://www.youtube.com/embed/tZPy-PjL_3U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                            </div>
+                                        </div>
+                                        <div className="modal-footer justify-content-center">
+                                            <span className="mr-4">Alumni class 17-20</span>
+                                            <a type="button" className="btn-floating btn-sm btn-fb"><i className="lni-facebook-filled" /></a>
+                                            <a type="button" className="btn-floating btn-sm btn-tw"><i className="lni-twitter-original" /></a>
+                                            <a type="button" className="btn-floating btn-sm btn-ins"><i className="lni-linkedin-original" /></a>
+                                            <button type="button" className="btn btn-footer btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a><img className="img-fluid z-depth-1" src="images/alumMs.Quyen.jpg" alt="video" data-toggle="modal" data-target="#modal4" /></a>
+                        </div>
+                    </div>
+                </div>
                 <div className="container">
                     <Content content="You can make a difference and improve the lives of underprivileged youths by helping Passerelles numériques in many different ways"></Content>
                     <div className="donates-form container" >
@@ -349,7 +423,7 @@ class Donate extends Component {
                             <img src="images/logo.png" width="80px" />
                             <span><h4>Donate now to Passerelles numériques Vietnam</h4></span>
                         </div>
-                        <form id="form-outsize">
+                        <form id="form-outsize" action={this.PostDonate}>
                             <div className="row">
                                 <div className="col-sm-4" id="my-donation" >
                                     <div id="header-donation" className="col">
@@ -365,14 +439,13 @@ class Donate extends Component {
                                                 <button name="value" className="btn-blue-other" id="other">Other
                                                 </button>
                                                 <strong id="other-input">
-                                                    {/* <span>$</span> */}
                                                     <input type="number" min={0} max={100000} name="value" onChange={this.onChange.bind(this)} value={this.state.value} data-impact="That’s great. Thank you!" />
                                                 </strong>
                                             </div>
                                         </div>
                                         <div className="form-group">
                                             <span>Other Amount</span>
-                                            <input className="col-sm-6" name="donation" type="text" id="otheramount" name="otheramount" required
+                                            <input className="col-sm-6" name="donation" type="text" id="otheramount" name="otheramount"
                                                 minlength="4" maxlength="8" size="10" onChange={(e) => this.onChangeOtherAmount(e)}></input>
                                             {this.state.otherValue}$
                                         </div>
@@ -387,14 +460,12 @@ class Donate extends Component {
                                                 <button name="value" className="btn-blue-other" id="other1">Other
                                                 </button>
                                                 <strong id="other-input1">
-                                                    {/* <span>$</span> */}
                                                     <input type="number" min={0} max={100000} name="valueMonth" onChange={this.onHandelChange.bind(this)} value={this.state.valueMonth} data-impact="That’s great. Thank you!" />
                                                 </strong>
                                             </div>
                                         </div>
                                         <div className=" col">
                                             <span>You will be charged on the following date each month <input type="text" value={this.state.today} style={{ maxWidth: '70px', height: '20px' }} /></span>
-
                                         </div>
 
                                         <div className="form-group col">
@@ -407,8 +478,8 @@ class Donate extends Component {
                                         <h4>My detail</h4>
                                     </div>
                                     <div id="content-detail" >
-                                        <h6 className="col">I already have a HelloAsso account
-                                        </h6>
+                                        {/* <h6 className="col">I already have a HelloAsso account
+                                        </h6> */}
                                         <section id="tabs" className="project-tab">
                                             <div className="container">
                                                 <div className="row">
@@ -424,19 +495,19 @@ class Donate extends Component {
                                                             <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
                                                                 <div className="form-group">
-                                                                    <input type="text" name="lastname" id="lastname" className="col" placeholder="Last Name *" />
-                                                                    <input type="text" name="firstname" id="firstname" className="col" placeholder="First Name *" />
+                                                                    <input type="text" name="lastname" id="lastname" className="col" placeholder="Last Name *" required />
+                                                                    <input type="text" name="firstname" id="firstname" className="col" placeholder="First Name *" required />
                                                                 </div>
                                                                 <div className="form-group">
-                                                                    <input type="text" name="email" id="email" placeholder="Email *" />
+                                                                    <input type="text" name="email" id="email" placeholder="Email *" required />
                                                                 </div>
                                                                 <div className="form-group" >
-                                                                    <input type="text" name="address" id="address" placeholder="Street adsress *" />
+                                                                    <input type="text" name="address" id="address" placeholder="Street adsress *" required />
                                                                 </div>
 
                                                                 <div className="form-group" >
-                                                                    <input type="text" name="city" id="city" className="col" placeholder="city" />
-                                                                    <select className="col-sm-6">
+                                                                    <input type="text" name="city" id="city" className="col" placeholder="city" required />
+                                                                    <select className="col-sm-6" required>
                                                                         {
                                                                             countries.map(a => (
                                                                                 <option>{a.text.toString()}</option>
@@ -447,21 +518,21 @@ class Donate extends Component {
                                                             </div>
                                                             <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                                                                 <div className="form-group">
-                                                                    <input type="text" name="company" id="company" className="col" placeholder="Company or organization *" />
+                                                                    <input type="text" name="company" id="company" className="col" placeholder="Company or organization *" required />
                                                                 </div>
                                                                 <div className="form-group">
-                                                                    <input type="text" name="lastname" id="lastname" className="col" placeholder="Last Name *" />
-                                                                    <input type="text" name="firstname" id="firstname" className="col" placeholder="First Name *" />
+                                                                    <input type="text" name="lastname" id="lastname" className="col" placeholder="Last Name *" required />
+                                                                    <input type="text" name="firstname" id="firstname" className="col" placeholder="First Name *" required />
                                                                 </div>
                                                                 <div className="form-group">
-                                                                    <input type="text" name="email" id="email" placeholder="Email *" />
+                                                                    <input type="text" name="email" id="email" placeholder="Email *" required />
                                                                 </div>
                                                                 <div className="form-group" >
-                                                                    <input type="text" name="address" id="address" placeholder="Street adsress *" />
+                                                                    <input type="text" name="address" id="address" placeholder="Street adsress *" required />
                                                                 </div>
 
                                                                 <div className="form-group" >
-                                                                    <input type="text" name="city" id="city" className="col" placeholder="city" />
+                                                                    <input type="text" name="city" id="city" className="col" placeholder="city" required />
                                                                     <select className="col-sm-6">
                                                                         {
                                                                             countries.map(a => (
@@ -503,7 +574,7 @@ class Donate extends Component {
                                                 </tr>
                                                 <tr>
                                                     <td>Your contribution to the functioning of HelloAsso.<a ></a></td>
-                                                    <td >{this.state.hihi}€</td>
+                                                    <td >{this.state.orther}€</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Total</td>
@@ -541,7 +612,7 @@ class Donate extends Component {
                             </div>
                             <div className="row" id="payment-method">
                                 <div className="form-group col " >
-                                    <p><p style={{textAlign:'center'}}><i className="fa fa-lock lock">100% secured payment
+                                    <p><p style={{ textAlign: 'center' }}><i className="fa fa-lock lock">100% secured payment
                                     </i></p>All your bank details are completely secured throughout the payment process. The data is encrypted with SSL and we guarantee the safe treatment of your transaction.</p>
                                 </div>
                             </div>
@@ -551,76 +622,7 @@ class Donate extends Component {
                 <br></br>
                 <br></br>
                 <br></br>
-                <div className="donation wow fadeInUp" data-wow-delay="0.1s" id="review">
-                    <div className="row">
-                        <div className="col-lg-4 col-md-12 mb-4">
-                            <div className="modal fade" id="modal1" tabIndex={-1} role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div className="modal-dialog modal-lg" role="document">
-                                    <div className="modal-content">
-                                        <div className="modal-body mb-0 p-0">
-                                            <div className="embed-responsive embed-responsive-16by9 z-depth-1-half">
-                                                <iframe width="560" height="315" src="https://www.youtube.com/embed/olcVx8xnwWQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                            </div>
-                                        </div>
-                                        <div className="modal-footer justify-content-center">
-                                            <span className="mr-4">Share about student</span>
-                                            <a type="button" className="btn-floating btn-sm btn-fb"><i className="fab fa-facebook-f" /></a>
-                                            <a type="button" className="btn-floating btn-sm btn-tw"><i className="fab fa-twitter" /></a>
-                                            <a type="button" className="btn-floating btn-sm btn-gplus"><i className="fab fa-google-plus-g" /></a>
-                                            <a type="button" className="btn-floating btn-sm btn-ins"><i className="fab fa-linkedin-in" /></a>
-                                            <button type="button" className="btn btn-footer btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a><img className="img-fluid z-depth-1" src="images/huou.jpg" alt="video of student PNV22" data-toggle="modal" data-target="#modal1" /></a>
-                        </div>
-                        <div className="col-lg-4 col-md-6 mb-4">
-                            <div className="modal fade" id="modal6" tabIndex={-1} role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div className="modal-dialog modal-lg" role="document">
-                                    <div className="modal-content">
-                                        <div className="modal-body mb-0 p-0">
-                                            <div className="embed-responsive embed-responsive-16by9 z-depth-1-half">
-                                                <iframe width="560" height="315" src="https://www.youtube.com/embed/NDHBdV3QUCk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                            </div>
-                                        </div>
-                                        <div className="modal-footer justify-content-center">
-                                            <span className="mr-4">About PNV</span>
-                                            <a type="button" className="btn-floating btn-sm btn-fb"><i className="fab fa-facebook-f" /></a>
-                                            <a type="button" className="btn-floating btn-sm btn-tw"><i className="fab fa-twitter" /></a>
-                                            <a type="button" className="btn-floating btn-sm btn-gplus"><i className="fab fa-google-plus-g" /></a>
-                                            <a type="button" className="btn-floating btn-sm btn-ins"><i className="fab fa-linkedin-in" /></a>
-                                            <button type="button" className="btn btn-footer btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a><img className="img-fluid z-depth-1" src="images/pnv.jpg" alt="video" data-toggle="modal" data-target="#modal6" /></a>
-                        </div>
-                        <div className="col-lg-4 col-md-6 mb-4">
-                            <div className="modal fade" id="modal4" tabIndex={-1} role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div className="modal-dialog modal-lg" role="document">
-                                    <div className="modal-content">
-                                        <div className="modal-body mb-0 p-0">
-                                            <div className="embed-responsive embed-responsive-16by9 z-depth-1-half">
-                                                <iframe width="560" height="315" src="https://www.youtube.com/embed/tZPy-PjL_3U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                            </div>
-                                        </div>
-                                        <div className="modal-footer justify-content-center">
-                                            <span className="mr-4">Alumni class 17-20</span>
-                                            <a type="button" className="btn-floating btn-sm btn-fb"><i className="fab fa-facebook-f" /></a>
-                                            <a type="button" className="btn-floating btn-sm btn-tw"><i className="fab fa-twitter" /></a>
-                                            <a type="button" className="btn-floating btn-sm btn-gplus"><i className="fab fa-google-plus-g" /></a>
-                                            <a type="button" className="btn-floating btn-sm btn-ins"><i className="fab fa-linkedin-in" /></a>
-                                            <button type="button" className="btn btn-footer btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a><img className="img-fluid z-depth-1" src="images/alumMs.Quyen.jpg" alt="video" data-toggle="modal" data-target="#modal4" /></a>
-                        </div>
-                    </div>
-                </div>
+
                 <footer className="wow fadeInUp container" data-wow-delay="0.1s" id="review">
                     <div className="row">
                         <div className="col-sm-4">
@@ -670,7 +672,7 @@ class Donate extends Component {
                         </div>
                     </div>
                 </footer>
-                
+                <Map />                                                        
                 <Footer></Footer>
                 <a href="#" className="btn back-to-top"><i className="fa fa-chevron-up" /></a>
             </div>

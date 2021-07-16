@@ -10,7 +10,7 @@ class History extends Component {
             <div className="row justify-content-center">
               <div className="col-lg-6">
                 <div className="section-title text-center pb-50">
-                  <Title title="Lịch sử hình thành"></Title>
+                  <Title title="Histoty"></Title>
                 </div> 
               </div>
             </div> {/* row */}

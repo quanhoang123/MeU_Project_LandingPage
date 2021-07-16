@@ -31,7 +31,7 @@ class ManagementAndStaff extends Component {
             <div className="row justify-content-center">
               <div className="col-lg-6">
                 <div className="section-title text-center pb-50">
-                  <Title title="HỘI ĐỒNG QUẢN TRỊ"></Title>
+                  <Title title="ADMINISTRATIVE COUNCIL"></Title>
                 </div>
               </div>
             </div> {/* row */}

@@ -40,7 +40,7 @@ componentDidMount() {
                         <div className="col-lg-4 col-md-6 col-sm-8">
                           <div className="single-services text-center mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.8s">
                             <div className="services-icon"> 
-                              <i className="lni-blackboard" />
+                              <i> <img src={values.image} alt="" height="100" width="100" style={{borderRadius:'100px'}} /></i>
                             </div>
                             <div className="services-content mt-15">
                               <h4 className="services-title">{values.name}</h4>
@@ -49,7 +49,7 @@ componentDidMount() {
                         </div>
                       )})                
                   }
-{/*                   
+                {/*                   
                   <div className="col-lg-4 col-md-6 col-sm-8">
                     <div className="single-services text-center mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1.2s">
                       <div className="services-icon">

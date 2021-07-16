@@ -53,29 +53,6 @@ class Header extends Component {
                                         <h1 className="banner-title mt-10 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="2s">{introductions.content}</h1>
                                         <a className="banner-contact mt-25 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="2.3s" href="#contact">{introductions.descriptions}</a>
                                     </div>                          
-                                {/* {
-                                introduction.map(a => (
-                                    <tr>                                       
-                                        <td>{a.id}</td>                                       
-                                        <td>{a.name}</td>
-                                        <td><img src={a.detail_image} width="200px" height="100px" id="imageDrink"/></td>
-                                        <td>{a.description}</td>
-                                        <td>{a.price}</td>
-                                        <td>{a.sale}</td>
-                                        <td>{a.star}</td>                                            
-                                        <td>
-                                            <ul className="list-inline m-0">
-                                                <li className="list-inline-item">                                              
-                                                    <button className="btn btn-success btn-sm rounded-0" type="button" data-toggle="modal" data-target="#updateDrinkModal" data-placement="top" title="Edit" onClick={()=>this.updateData(a.id)}><i className="fa fa-edit" /></button>
-                                                </li>
-                                                <li className="list-inline-item">
-                                                   <button className="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" onClick={()=>this.delete(a.id)}><i className="fa fa-trash" /></button>
-                                                </li>
-                                            </ul>                                           
-                                        </td>
-                                    </tr>
-                                ))
-                            } */}
                                 </div>
                             </div>
                             {/* row */}
